@@ -30,4 +30,9 @@ update elon.book set price=price+500 where bookid=1;
 select sum(price) 총액 from elon.book;
 commit;
 
-/*반
+/*serializable*/
+set transaction isolation level read committed;
+select sum(price) 총액 from elon.book;
+insert into elon.book values(12,'테스트','테스트출판사',5500);
+select sum(price) 총액 from elon.book;
+commit;
