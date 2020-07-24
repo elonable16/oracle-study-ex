@@ -44,3 +44,8 @@ SET transaction isolation level serializable;
 select sum(price) 총액 FROM book;
 select sum(price) 총액 from book;
 commit;
+
+GRANT SELECT ON book TO mdguest;
+GRANT SELECT, UPDATE ON customer TO mdguest WITH GRANT OPTION;
+/*SELECT 권한 사용자 전체 부여*/
+GRANT SELECT ON orders TO PUBLIC;
